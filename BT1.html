@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="BT1.css">
+</head>
+<body>
+    <form action="https:/vti.com.vn" method="post" target="_blank">
+        <div class="img_container">
+         <img id="profile-img" class="profile-img-card" src="logo-512x512.png">
+        </div>
+        <h3>アンケート</h3>
+    <div class="container">
+      <h4>講習についてのアンケート</h4>
+      <br>
+        <label for="name"><b>氏名</b></label><br>
+          <input type="text" id="name" name="name"><br>
+
+        <label for="address"><b>住所</b></label><br>
+          <input type="text" id="address" name="address"><br>
+
+        <label for="gender"><b>性別</b></label><br>
+          <input type="radio" id="man" name="man">
+        <label for="man">男</label>
+          <input type="radio" id="woman" name="woman">
+        <label for="woman">女</label><br>
+        <br>
+        <label for="curriculum"><b>講習名</b></label>
+        <select id="curriculum" name="curriculum">
+          <option value="database" =>データベース基礎</option>
+          <option value="network">ネットワーク基礎</option>
+          <option value="java">Java基礎</option>
+        </select>
+        <br>
+        <label for="impressions"><b>感想</b></label><br>
+          <input type="text" id="impressions" ><br><br>
+          <button class="btn" type="submit">送信</button>
+      </form>
+  </div>
+</body>
+</html>
