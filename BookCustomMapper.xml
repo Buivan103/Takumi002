@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vn.com.vti.springexam.mapper.BookCustomMapper">
+	<resultMap type="vn.com.vti.springexam.entity.BookCustomized" id="bookCustomized">
+		<id property="bookId" column="BOOK_ID"/> 
+		<result property="bookName" column="BOOK_NAME"/>
+		<result property="price" column="PRICE"/>
+		<result property="onSaleDate" column="ON_SALE_DATE"/>
+		<result property="publisherId" column="PUBLISHER_ID"/>
+		<result property="publisherName" column="PUBLISHER_NAME"/>
+		<result property="categoryId" column="CATEGORY_ID"/>
+		<result property="categoryName" column="CATEGORY_NAME"/>
+	</resultMap>
+	
+	<select id="selectByNamePart" resultMap="bookCustomized">
+		SELECT
+			B.*
+			,P.PUBLISHER_NAME
+			,C.CATEGORY_NAME
+		FROM
+			BOOK AS B
+			LEFT OUTER JOIN PUBLISHER AS P
+				ON B.PUBLISHER_ID=P.PUBLISHER_ID
+			LEFT OUTER JOIN CATEGORY AS C
+				ON B.CATEGORY_ID=C.CATEGORY_ID
+		WHERE
+			B.BOOK_NAME LIKE #{bookName}
+		ORDER BY
+			BOOK_ID
+	</select>
+
+</mapper>
